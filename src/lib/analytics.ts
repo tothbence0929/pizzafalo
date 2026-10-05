@@ -7,9 +7,11 @@ import { getAnalyticsConfig } from "@/lib/analytics-config.functions";
 
 export const META_PIXEL_ID = "25512891468361668";
 
-/** A GA4 azonosítót a szerveren tároljuk; induláskor töltjük be. */
+/** GA4 mérési azonosító (nyilvános, a böngészőben amúgy is látszik). */
+export const GA_MEASUREMENT_ID = "G-S4PGNS1G1B";
+
 let gaMeasurementId =
-  (import.meta.env["VITE_GA_MEASUREMENT_ID"] as string | undefined) ?? "";
+  (import.meta.env["VITE_GA_MEASUREMENT_ID"] as string | undefined) || GA_MEASUREMENT_ID;
 export function getGaMeasurementId() {
   return gaMeasurementId;
 }
